@@ -8,24 +8,21 @@ function pageInitializer() {
     var newRow = $("<div>");
     var hourCol = $("<div>");
     var mainCol = $("<div>");
-    var input = $("<textarea>");
     var saveCol = $("<div>");
     var saveIcon = $("<i>");
 
     newRow.addClass("row time-block");
+    newRow.attr("id", "time-" + i);
     hourCol.addClass("col-2 hour");
     /* TODO: Dynamically generate formatted time */
     hourCol.text(i);
 
-    mainCol.attr("id", "main-" + i);
     mainCol.addClass("col-9 main-col");
-    input.attr("data-hour", i);
-    mainCol.append(input);
+    mainCol.append("<textarea>");
 
     saveCol.addClass("col-1 saveBtn");
     saveIcon.addClass("fa fa-save");
     saveCol.append(saveIcon);
-    saveCol.attr("data-hour", i);
 
     newRow.append(hourCol);
     newRow.append(mainCol);
@@ -37,6 +34,8 @@ function pageInitializer() {
 
 /* Update date and row classes based on current time */
 function timeUpdate() {
+  var currentHour = moment().hour();
+
   /* Update date at top of screen */
   $("#currentDay").text(moment().format("dddd, MMMM Do"));
 
@@ -46,7 +45,6 @@ function timeUpdate() {
   /* Update each main column based on the current time */
   for (var i = startTime; i < endTime; i++) {
     var newClass;
-    var currentHour = moment().hour();
     if (currentHour > i) {
       newClass = "past";
     } else if (currentHour < i) {
@@ -54,7 +52,7 @@ function timeUpdate() {
     } else {
       newClass = "present";
     }
-    $("#main-" + i).addClass(newClass);
+    $("#time-" + i).children(".main-col").addClass(newClass);
   }
 }
 
