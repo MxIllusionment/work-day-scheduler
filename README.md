@@ -15,5 +15,6 @@ This website has been deployed on GitHub as http://malenchite.github.io/work-day
 Bootstrap courtesy of https://getbootstrap.com  
 jQuery courtesy of https://jquery.com  
 moment.js courtesy of https://momentjs.com  
+Font Awesome courtesy of https://fontawesome.com  
 
 Basic HTML and CSS design provided as part of an assignment for UNC Coding Bootcamp
