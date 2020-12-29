@@ -10,7 +10,9 @@ textarea{
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
+  width: 100%;
+  height: 100%;
+  line-height: 1.25rem;
 }
 
 .jumbotron {
@@ -31,12 +33,18 @@ textarea{
 }
 
 .row {
-  white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
+}
+
+.main-col {
+  margin: 0;
+  padding: 0;
 }
 
 .hour {
+  
+  white-space: pre-wrap;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
@@ -58,6 +66,7 @@ textarea{
 }
 
 .saveBtn {
+  white-space: pre-wrap;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
