@@ -14,8 +14,9 @@ function pageInitializer() {
     newRow.addClass("row time-block");
     newRow.attr("id", "time-" + i);
     hourCol.addClass("col-2 hour");
-    /* TODO: Dynamically generate formatted time */
-    hourCol.text(i);
+
+    /* Dynamically generate formatted time */
+    hourCol.text(moment().hour(i).format("hA"));
 
     mainCol.addClass("col-9 main-col");
     mainCol.append("<textarea>");
