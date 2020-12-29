@@ -10,7 +10,6 @@ function pageInitializer() {
     var mainCol = $("<div>");
     var input = $("<textarea>");
     var saveCol = $("<div>");
-    var centerDiv = $("<div>");
     var saveIcon = $("<i>");
 
     newRow.addClass("row time-block");
@@ -23,9 +22,7 @@ function pageInitializer() {
     mainCol.append(input);
 
     saveCol.addClass("col-1 saveBtn");
-    centerDiv.addClass("text-center");
     saveIcon.addClass("fa fa-save");
-    //centerDiv.append(saveIcon);
     saveCol.append(saveIcon);
     saveCol.attr("data-hour", i);
 
