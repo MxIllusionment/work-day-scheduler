@@ -4,6 +4,7 @@ body {
   line-height: 1;
 }
 
+/* Text entry with transparent background, filling entire main column div*/
 textarea{
   background: transparent;
   border: none;
@@ -15,6 +16,7 @@ textarea{
   line-height: 1.25rem;
 }
 
+/* Used for page header */
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -23,10 +25,7 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
-  white-space: pre-wrap;
-}
-
+/* For each hour's row */
 .time-block{
   text-align: center;
   border-radius: 15px;
@@ -37,11 +36,13 @@ textarea{
   border-top: 1px solid white;
 }
 
+/* Removes spacing for main column so textarea can fit precisely */
 .main-col {
   margin: 0;
   padding: 0;
 }
 
+/* For left column hour display of each row */
 .hour {
   white-space: pre-wrap;
   background-color: #ffffff;
@@ -50,6 +51,7 @@ textarea{
   padding: 30px 0;
 }
 
+/* Time-dependent styles determining color for each main column */
 .past {
   background-color: #d3d3d3;
   color: white;
@@ -65,6 +67,7 @@ textarea{
   color: white;
 }
 
+/* Right column save button */
 .saveBtn {
   white-space: pre-wrap;
   border-left: 1px solid black;
@@ -75,6 +78,7 @@ textarea{
   padding: 30px 0 0 0;
 }
 
+/* Animate save icon on hover */
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
