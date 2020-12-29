@@ -1,5 +1,6 @@
 var startTime = 9;
 var endTime = 18;
+var scheduleContents = [];
 
 
 /* Dynamically creates all rows for the scheduler */
@@ -57,9 +58,36 @@ function timeUpdate() {
   }
 }
 
-/* Update time-based information every minute */
-setInterval(timeUpdate, 60000);
+/* Save the textarea in a specific row */
+function saveRow() {
+  var parent = $(this).parent();
+  /* Extract row time from parent's ID and convert to array index */
+  var rowIndex = parseInt(parent.attr("id").split("-")[1]) - startTime;
+  scheduleContents[rowIndex] = parent.find("textarea").val();
+
+  localStorage.setItem("schedule", JSON.stringify(scheduleContents));
+}
+
+/* Load all schedule date from local storage */
+function loadRows() {
+  var loadedContents = JSON.parse(localStorage.getItem("schedule"));
+
+  if (loadedContents) {
+    scheduleContents = loadedContents;
+    /* Assign loaded contents to the appropriate textareas */
+    for (var i = 0; i < scheduleContents.length; i++) {
+      $("#time-" + (i + startTime)).find("textarea").val(scheduleContents[i]);
+    }
+  }
+}
 
 /* Page initialization */
 pageInitializer();
+loadRows();
 timeUpdate();
+
+/* Update time-based information every minute */
+setInterval(timeUpdate, 60000);
+
+/* Add event listener to all save buttons */
+$(".saveBtn").click(saveRow);
