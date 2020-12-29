@@ -8,27 +8,20 @@ function pageInitializer() {
   for (var i = startTime; i < endTime; i++) {
     var newRow = $("<div>");
     var hourCol = $("<div>");
-    var mainCol = $("<div>");
-    var saveCol = $("<div>");
-    var saveIcon = $("<i>");
 
     newRow.addClass("row time-block");
     newRow.attr("id", "time-" + i);
-    hourCol.addClass("col-2 hour");
 
+    hourCol.addClass("col-2 hour");
     /* Dynamically generate formatted time */
     hourCol.text(moment().hour(i).format("hA"));
-
-    mainCol.addClass("col-9 main-col");
-    mainCol.append("<textarea>");
-
-    saveCol.addClass("col-1 saveBtn");
-    saveIcon.addClass("fa fa-save");
-    saveCol.append(saveIcon);
-
     newRow.append(hourCol);
-    newRow.append(mainCol);
-    newRow.append(saveCol);
+
+    /* Add central column with textarea input */
+    newRow.append("<div class='col-9 main-col'><textarea></textarea></div>");
+
+    /* Add save button column with icon */
+    newRow.append("<div class='col-1 saveBtn'><i class='fa fa-save'></i></div>");
 
     $("#timeblock-wrapper").append(newRow);
   }
